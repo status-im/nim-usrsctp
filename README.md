@@ -4,7 +4,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 [![License: Apache](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 
-An [Mbed-TLS](https://github.com/Mbed-TLS/mbedtls/) wrapper for Nim, fully integrated with the Nim build system.
+An [usrsctp](https://github.com/sctplab/usrsctp) wrapper for Nim, fully integrated with the Nim build system.
 
 Applications using `nim-usrsctp` are fully stand-alone, needing no additional DLL or shared library.
 
