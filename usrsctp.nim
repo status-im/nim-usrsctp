@@ -18,7 +18,6 @@ const usrsctpInclude = root/"usrsctp"/"usrsctplib"
 # const 'SCTP_CMT_MAX' has unsupported value 'SCTP_CMT_MPTCP'
 {.push hint[ConvFromXtoItselfNotNeeded]: off.}
 
-
 {.experimental: "codeReordering".}
 {.passc: "-DSCTP_PROCESS_LEVEL_LOCKS".}
 {.passc: "-DSCTP_SIMPLE_ALLOCATOR".}
@@ -47,6 +46,8 @@ const usrsctpInclude = root/"usrsctp"/"usrsctplib"
 {.passc: "-DHAVE_NETINET_IP_ICMP_H=1".}
 {.passc: "-DHAVE_NET_ROUTE_H=1".}
 {.passc: "-D_GNU_SOURCE".}
+when defined(macos) or defined(macosx):
+  {.passc: "-D__APPLE_USE_RFC_3542".}
 {.passc: "-I./usrsctp/usrsctplib".}
 {.compile: "./usrsctp/usrsctplib/netinet/sctp_input.c".}
 {.compile: "./usrsctp/usrsctplib/netinet/sctp_asconf.c".}
