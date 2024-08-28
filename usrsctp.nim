@@ -42,9 +42,9 @@ const usrsctpInclude = root/"usrsctp"/"usrsctplib"
 {.passc: "-DHAVE_STDATOMIC_H=1".}
 when not defined(windows):
   {.passc: "-DHAVE_SYS_QUEUE_H=1".}
+  {.passc: "-DHAVE_NETINET_IP_ICMP_H=1".}
 {.passc: "-DHAVE_LINUX_IF_ADDR_H=1".}
 {.passc: "-DHAVE_LINUX_RTNETLINK_H=1".}
-{.passc: "-DHAVE_NETINET_IP_ICMP_H=1".}
 {.passc: "-DHAVE_NET_ROUTE_H=1".}
 {.passc: "-D_GNU_SOURCE".}
 when defined(macos) or defined(macosx):
