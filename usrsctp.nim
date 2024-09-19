@@ -17,38 +17,67 @@ const usrsctpInclude = root/"usrsctp"/"usrsctplib"
 # const 'SCTP_INACTIVE' has unsupported value '0x0002 /* neither SCTP_ADDR_REACHABLE'
 # const 'SCTP_CMT_MAX' has unsupported value 'SCTP_CMT_MPTCP'
 {.push hint[ConvFromXtoItselfNotNeeded]: off.}
-
+# gcc -DPACKAGE_NAME=\"libusrsctp\" -DPACKAGE_TARNAME=\"libusrsctp\" -DPACKAGE_VERSION=\"0.9.5.0\" "-DPACKAGE_STRING=\"libusrsctp 0.9.5.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libusrsctp\" -DVERSION=\"0.9.5.0\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DSCTP_DEBUG=1 -DINET=1 -DINET6=1 -DHAVE_SOCKET=1 -DHAVE_INET_ADDR=1 -DHAVE_STDATOMIC_H=1 -DHAVE_SYS_QUEUE_H=1 -DHAVE_NETINET_IP_ICMP_H=1 -DHAVE_NET_ROUTE_H=1 -DHAVE_SA_LEN=1 -DHAVE_SIN_LEN=1 -DHAVE_SIN6_LEN=1 -DHAVE_SCONN_LEN=1 -I. -DSCTP_PROCESS_LEVEL_LOCKS -DSCTP_SIMPLE_ALLOCATOR -D__Userspace__ -g -O2 -std=c99 -Wno-deprecated-declarations -D__APPLE_USE_RFC_2292 -pedantic -Wall -Werror -g -MT libusrsctp_la-user_mbuf.lo -MD -MP -MF .deps/libusrsctp_la-user_mbuf.Tpo -c user_mbuf.c -o libusrsctp_la-user_mbuf.o
 {.experimental: "codeReordering".}
-{.passc: "-DSCTP_PROCESS_LEVEL_LOCKS".}
-{.passc: "-DSCTP_SIMPLE_ALLOCATOR".}
-{.passc: "-D__Userspace__".}
-{.passc: "-DSTDC_HEADERS=1".}
-{.passc: "-DHAVE_SYS_TYPES_H=1".}
-{.passc: "-DHAVE_SYS_STAT_H=1".}
-{.passc: "-DHAVE_STDLIB_H=1".}
-{.passc: "-DHAVE_STRING_H=1".}
-{.passc: "-DHAVE_MEMORY_H=1".}
-{.passc: "-DHAVE_STRINGS_H=1".}
-{.passc: "-DHAVE_INTTYPES_H=1".}
-{.passc: "-DHAVE_STDINT_H=1".}
-{.passc: "-DHAVE_UNISTD_H=1".}
-{.passc: "-DHAVE_DLFCN_H=1".}
-{.passc: "-DLT_OBJDIR=\".libs/\"".}
-{.passc: "-DSCTP_DEBUG=1".}
-{.passc: "-DINET=1".}
-{.passc: "-DINET6=1".}
-{.passc: "-DHAVE_SOCKET=1".}
-{.passc: "-DHAVE_INET_ADDR=1".}
-{.passc: "-DHAVE_STDATOMIC_H=1".}
-when not defined(windows):
+when defined(linux):
+  {.passc: "-DSCTP_PROCESS_LEVEL_LOCKS".}
+  {.passc: "-DSCTP_SIMPLE_ALLOCATOR".}
+  {.passc: "-D__Userspace__".}
+  {.passc: "-DSTDC_HEADERS=1".}
+  {.passc: "-DHAVE_SYS_TYPES_H=1".}
+  {.passc: "-DHAVE_SYS_STAT_H=1".}
+  {.passc: "-DHAVE_STDLIB_H=1".}
+  {.passc: "-DHAVE_STRING_H=1".}
+  {.passc: "-DHAVE_MEMORY_H=1".}
+  {.passc: "-DHAVE_STRINGS_H=1".}
+  {.passc: "-DHAVE_INTTYPES_H=1".}
+  {.passc: "-DHAVE_STDINT_H=1".}
+  {.passc: "-DHAVE_UNISTD_H=1".}
+  {.passc: "-DHAVE_DLFCN_H=1".}
+  {.passc: "-DLT_OBJDIR=\".libs/\"".}
+  {.passc: "-DSCTP_DEBUG=1".}
+  {.passc: "-DINET=1".}
+  {.passc: "-DINET6=1".}
+  {.passc: "-DHAVE_SOCKET=1".}
+  {.passc: "-DHAVE_INET_ADDR=1".}
+  {.passc: "-DHAVE_STDATOMIC_H=1".}
+  {.passc: "-DHAVE_LINUX_IF_ADDR_H=1".}
+  {.passc: "-DHAVE_LINUX_RTNETLINK_H=1".}
+  {.passc: "-D_GNU_SOURCE".}
   {.passc: "-DHAVE_SYS_QUEUE_H=1".}
   {.passc: "-DHAVE_NETINET_IP_ICMP_H=1".}
   {.passc: "-DHAVE_NET_ROUTE_H=1".}
-{.passc: "-DHAVE_LINUX_IF_ADDR_H=1".}
-{.passc: "-DHAVE_LINUX_RTNETLINK_H=1".}
-{.passc: "-D_GNU_SOURCE".}
 when defined(macos) or defined(macosx):
-  {.passc: "-D__APPLE_USE_RFC_3542".}
+  {.passc: "-DSCTP_DEBUG=1".}
+  {.passc: "-DLT_OBJDIR=\".libs/\"".}
+  {.passc: "-DINET=1".}
+  {.passc: "-DINET6=1".}
+  {.passc: "-DHAVE_SOCKET=1".}
+  {.passc: "-DHAVE_INET_ADDR=1".}
+  {.passc: "-DHAVE_STDATOMIC_H=1".}
+  {.passc: "-DHAVE_SYS_QUEUE_H=1".}
+  {.passc: "-DHAVE_NETINET_IP_ICMP_H=1".}
+  {.passc: "-DHAVE_NET_ROUTE_H=1".}
+  {.passc: "-DHAVE_SA_LEN=1".}
+  {.passc: "-DHAVE_SIN_LEN=1".}
+  {.passc: "-DHAVE_SIN6_LEN=1".}
+  {.passc: "-DHAVE_SCONN_LEN=1".}
+  {.passc: "-DHAVE_STDIO_H=1".}
+  {.passc: "-DHAVE_STDLIB_H=1".}
+  {.passc: "-DHAVE_STRING_H=1".}
+  {.passc: "-DHAVE_INTTYPES_H=1".}
+  {.passc: "-DHAVE_STDINT_H=1".}
+  {.passc: "-DHAVE_STRINGS_H=1".}
+  {.passc: "-DHAVE_SYS_STAT_H=1".}
+  {.passc: "-DHAVE_SYS_TYPES_H=1".}
+  {.passc: "-DHAVE_UNISTD_H=1".}
+  {.passc: "-DSTDC_HEADERS=1".}
+  {.passc: "-DHAVE_DLFCN_H=1".}
+  {.passc: "-DSCTP_PROCESS_LEVEL_LOCKS".}
+  {.passc: "-DSCTP_SIMPLE_ALLOCATOR".}
+  {.passc: "-D__Userspace__".}
+  {.passc: "-D__APPLE_USE_RFC_2292".}
+
 {.passc: "-I./usrsctp/usrsctplib".}
 {.compile: "./usrsctp/usrsctplib/netinet/sctp_input.c".}
 {.compile: "./usrsctp/usrsctplib/netinet/sctp_asconf.c".}
