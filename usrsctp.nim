@@ -327,8 +327,8 @@ const
   SCTP_DEBUG_NONE* = 0x00000000
   SCTP_DEBUG_ALL* = 0xFFFFFFFF
 
-when defined(macos) or defined(openbsd) or defined(dragonfly) or
-     defined(freebsd) or defined(netbsd):
+when defined(macos) or defined(macosx) or defined(openbsd) or
+     defined(dragonfly) or defined(freebsd) or defined(netbsd):
   type
     Sockaddr_conn* {.bycopy.} = object
       sconn_len*: uint8
