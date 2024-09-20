@@ -326,6 +326,22 @@ const
   SCTP_DUMP_INBOUND* = 0
   SCTP_DEBUG_NONE* = 0x00000000
   SCTP_DEBUG_ALL* = 0xFFFFFFFF
+
+when defined(macos) or defined(openbsd) or defined(dragonfly) or
+     defined(freebsd) or defined(netbsd):
+  type
+    Sockaddr_conn* {.bycopy.} = object
+      sconn_len*: uint8
+      sconn_family*: uint8
+      sconn_port*: uint16
+      sconn_addr*: pointer
+else:
+  type
+    Sockaddr_conn* {.bycopy.} = object
+      sconn_family*: uint16
+      sconn_port*: uint16
+      sconn_addr*: pointer
+
 type
   sctp_assoc_t* = uint32
   sctp_common_header* {.bycopy.} = object
@@ -333,11 +349,6 @@ type
     destination_port*: uint16
     verification_tag*: uint32
     crc32c*: uint32
-
-  Sockaddr_conn* {.bycopy.} = object
-    sconn_family*: uint16
-    sconn_port*: uint16
-    sconn_addr*: pointer
 
   sctp_sockstore* {.union, bycopy.} = object
     sin*: Sockaddr_in
