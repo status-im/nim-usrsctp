@@ -57,7 +57,6 @@ when defined(macos) or defined(macosx):
   {.passc: "-DHAVE_SIN_LEN=1".}
   {.passc: "-DHAVE_SIN6_LEN=1".}
   {.passc: "-DHAVE_SCONN_LEN=1".}
-  {.passc: "-DHAVE_STDIO_H=1".}
   {.passc: "-DHAVE_STDLIB_H=1".}
   {.passc: "-DHAVE_STRING_H=1".}
   {.passc: "-DHAVE_INTTYPES_H=1".}
