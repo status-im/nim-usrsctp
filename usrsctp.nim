@@ -9,15 +9,10 @@ const usrsctpInclude = root/"usrsctp"/"usrsctplib"
 
 {.passc: fmt"-I{usrsctpInclude}".}
 
-# Generated @ 2024-03-08T12:12:05+01:00
-# Command line:
-#   /home/lchenut/.nimble/pkgs/nimterop-0.6.11/nimterop/toast --compile=./usrsctp/usrsctplib/netinet/sctp_input.c --compile=./usrsctp/usrsctplib/netinet/sctp_asconf.c --compile=./usrsctp/usrsctplib/netinet/sctp_pcb.c --compile=./usrsctp/usrsctplib/netinet/sctp_usrreq.c --compile=./usrsctp/usrsctplib/netinet/sctp_cc_functions.c --compile=./usrsctp/usrsctplib/netinet/sctp_auth.c --compile=./usrsctp/usrsctplib/netinet/sctp_userspace.c --compile=./usrsctp/usrsctplib/netinet/sctp_output.c --compile=./usrsctp/usrsctplib/netinet/sctp_callout.c --compile=./usrsctp/usrsctplib/netinet/sctp_crc32.c --compile=./usrsctp/usrsctplib/netinet/sctp_sysctl.c --compile=./usrsctp/usrsctplib/netinet/sctp_sha1.c --compile=./usrsctp/usrsctplib/netinet/sctp_timer.c --compile=./usrsctp/usrsctplib/netinet/sctputil.c --compile=./usrsctp/usrsctplib/netinet/sctp_bsd_addr.c --compile=./usrsctp/usrsctplib/netinet/sctp_peeloff.c --compile=./usrsctp/usrsctplib/netinet/sctp_indata.c --compile=./usrsctp/usrsctplib/netinet/sctp_ss_functions.c --compile=./usrsctp/usrsctplib/user_socket.c --compile=./usrsctp/usrsctplib/netinet6/sctp6_usrreq.c --compile=./usrsctp/usrsctplib/user_mbuf.c --compile=./usrsctp/usrsctplib/user_environment.c --compile=./usrsctp/usrsctplib/user_recv_thread.c --pnim --preprocess --noHeader --defines=SCTP_PROCESS_LEVEL_LOCKS --defines=SCTP_SIMPLE_ALLOCATOR --defines=__Userspace__ --defines=STDC_HEADERS=1 --defines=HAVE_SYS_TYPES_H=1 --defines=HAVE_SYS_STAT_H=1 --defines=HAVE_STDLIB_H=1 --defines=HAVE_STRING_H=1 --defines=HAVE_MEMORY_H=1 --defines=HAVE_STRINGS_H=1 --defines=HAVE_INTTYPES_H=1 --defines=HAVE_STDINT_H=1 --defines=HAVE_UNISTD_H=1 --defines=HAVE_DLFCN_H=1 --defines=LT_OBJDIR=".libs/" --defines=SCTP_DEBUG=1 --defines=INET=1 --defines=INET6=1 --defines=HAVE_SOCKET=1 --defines=HAVE_INET_ADDR=1 --defines=HAVE_STDATOMIC_H=1 --defines=HAVE_SYS_QUEUE_H=1 --defines=HAVE_LINUX_IF_ADDR_H=1 --defines=HAVE_LINUX_RTNETLINK_H=1 --defines=HAVE_NETINET_IP_ICMP_H=1 --defines=HAVE_NET_ROUTE_H=1 --defines=_GNU_SOURCE --replace=sockaddr=SockAddr --replace=SockAddr_storage=Sockaddr_storage --replace=SockAddr_in=Sockaddr_in --replace=SockAddr_conn=Sockaddr_conn --replace=socklen_t=SockLen --includeDirs=./usrsctp/usrsctplib ./usrsctp/usrsctplib/usrsctp.h
-
 # const 'SCTP_PACKED' has unsupported value '__attribute__((packed))'
 # const 'SCTP_INACTIVE' has unsupported value '0x0002 /* neither SCTP_ADDR_REACHABLE'
 # const 'SCTP_CMT_MAX' has unsupported value 'SCTP_CMT_MPTCP'
 {.push hint[ConvFromXtoItselfNotNeeded]: off.}
-# gcc -DPACKAGE_NAME=\"libusrsctp\" -DPACKAGE_TARNAME=\"libusrsctp\" -DPACKAGE_VERSION=\"0.9.5.0\" "-DPACKAGE_STRING=\"libusrsctp 0.9.5.0\"" -DPACKAGE_BUGREPORT=\"\" -DPACKAGE_URL=\"\" -DPACKAGE=\"libusrsctp\" -DVERSION=\"0.9.5.0\" -DHAVE_STDIO_H=1 -DHAVE_STDLIB_H=1 -DHAVE_STRING_H=1 -DHAVE_INTTYPES_H=1 -DHAVE_STDINT_H=1 -DHAVE_STRINGS_H=1 -DHAVE_SYS_STAT_H=1 -DHAVE_SYS_TYPES_H=1 -DHAVE_UNISTD_H=1 -DSTDC_HEADERS=1 -DHAVE_DLFCN_H=1 -DLT_OBJDIR=\".libs/\" -DSCTP_DEBUG=1 -DINET=1 -DINET6=1 -DHAVE_SOCKET=1 -DHAVE_INET_ADDR=1 -DHAVE_STDATOMIC_H=1 -DHAVE_SYS_QUEUE_H=1 -DHAVE_NETINET_IP_ICMP_H=1 -DHAVE_NET_ROUTE_H=1 -DHAVE_SA_LEN=1 -DHAVE_SIN_LEN=1 -DHAVE_SIN6_LEN=1 -DHAVE_SCONN_LEN=1 -I. -DSCTP_PROCESS_LEVEL_LOCKS -DSCTP_SIMPLE_ALLOCATOR -D__Userspace__ -g -O2 -std=c99 -Wno-deprecated-declarations -D__APPLE_USE_RFC_2292 -pedantic -Wall -Werror -g -MT libusrsctp_la-user_mbuf.lo -MD -MP -MF .deps/libusrsctp_la-user_mbuf.Tpo -c user_mbuf.c -o libusrsctp_la-user_mbuf.o
 {.experimental: "codeReordering".}
 when defined(linux):
   {.passc: "-DSCTP_PROCESS_LEVEL_LOCKS".}
@@ -77,6 +72,34 @@ when defined(macos) or defined(macosx):
   {.passc: "-DSCTP_SIMPLE_ALLOCATOR".}
   {.passc: "-D__Userspace__".}
   {.passc: "-D__APPLE_USE_RFC_2292".}
+when defined(windows):
+  {.passc: "-DSCTP_PROCESS_LEVEL_LOCKS".}
+  {.passc: "-DSCTP_SIMPLE_ALLOCATOR".}
+  {.passc: "-D__Userspace__".}
+  {.passc: "-DSTDC_HEADERS=1".}
+  {.passc: "-DHAVE_SYS_TYPES_H=1".}
+  {.passc: "-DHAVE_SYS_STAT_H=1".}
+  {.passc: "-DHAVE_STDLIB_H=1".}
+  {.passc: "-DHAVE_STRING_H=1".}
+  {.passc: "-DHAVE_MEMORY_H=1".}
+  {.passc: "-DHAVE_STRINGS_H=1".}
+  {.passc: "-DHAVE_INTTYPES_H=1".}
+  {.passc: "-DHAVE_STDINT_H=1".}
+  {.passc: "-DHAVE_UNISTD_H=1".}
+  {.passc: "-DHAVE_DLFCN_H=1".}
+  {.passc: "-DLT_OBJDIR=\".libs/\"".}
+  {.passc: "-DSCTP_DEBUG=1".}
+  {.passc: "-DINET=1".}
+  {.passc: "-DINET6=1".}
+  {.passc: "-DHAVE_SOCKET=1".}
+  {.passc: "-DHAVE_INET_ADDR=1".}
+  {.passc: "-DHAVE_STDATOMIC_H=1".}
+  {.passc: "-DHAVE_SYS_QUEUE_H=1".}
+  {.passc: "-DHAVE_NETINET_IP_ICMP_H=1".}
+  {.passc: "-DHAVE_NET_ROUTE_H=1".}
+  {.passc: "-D__USE_MINGW_ANSI_STDIO".}
+  {.passc: "-DWINVER=0x0601".}
+  {.passc: "-D_WIN32_WINNT=0x0601".}
 
 {.passc: "-I./usrsctp/usrsctplib".}
 {.compile: "./usrsctp/usrsctplib/netinet/sctp_input.c".}
