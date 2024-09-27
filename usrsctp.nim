@@ -94,7 +94,6 @@ when defined(windows):
   {.passc: "-DHAVE_SOCKET=1".}
   {.passc: "-DHAVE_INET_ADDR=1".}
   {.passc: "-DHAVE_STDATOMIC_H=1".}
-  {.passc: "-DHAVE_NET_ROUTE_H=1".}
   {.passc: "-D__USE_MINGW_ANSI_STDIO".}
   {.passc: "-DWINVER=0x0601".}
   {.passc: "-D_WIN32_WINNT=0x0601".}
